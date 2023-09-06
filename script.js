@@ -5,4 +5,17 @@ function getComputerChoice(){
     return choices[selection];
 }
 
-getComputerChoice();
+function getPlayerSelection(){
+    const choices = ["rock","paper","scissors"];
+    let playerChoice = "";
+    
+    playerChoice = playerChoice.toLowerCase();
+
+    while( !choices.includes(playerChoice)){
+        playerChoice = prompt("Please select rock paper or scissors:");
+        playerChoice = playerChoice.toLowerCase();
+    };
+    
+}
+
+getPlayerSelection();
