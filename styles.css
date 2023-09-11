@@ -79,3 +79,15 @@ footer{
     background-color: var(--dark-blue);
     height: 5vh;
 }
+
+ul{
+    display: flex;
+}
+
+li{
+    list-style-type: none;
+}
+
+img{
+    max-width: 100px;
+}
