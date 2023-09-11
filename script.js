@@ -64,4 +64,4 @@ function game() {
     }
 }
 
-game();
+// game();
