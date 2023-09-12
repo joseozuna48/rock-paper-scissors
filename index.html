@@ -6,22 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <title>Rock Paper Scissors</title>
 </head>
 
 <body>
 
-    <header>Rock Paper Scissors Game!</header>
+    <header> <h1>Rock Paper Scissors Game!</h1></header>
 
     <main>
 
         <div>
-            <div>Choose one option</div>
+            <div><h2>Choose one option</h2></div>
             <ul>
-                <li><img src="/images/rock.png" alt="" srcset=""></li>
-                <li><img src="/images/paper.png" alt="" srcset="">Paper</li>
-                <li><img src="images/scissors.png" alt="">Scissors</li>
+                <li data-choice="rock"><img src="/images/rock.png" alt="rock" >rock</li>
+                <li data-choice="paper" ><img src="/images/paper.png" alt="paper">Paper</li>
+                <li data-choice="scissors"><img src="images/scissors.png" alt="scissors">Scissors</li>
             </ul>
         </div>
 
@@ -34,7 +34,7 @@
     </main>
 
     <footer>
-        footer
+        <h3>footer</h3>
     </footer>
 
 </body>

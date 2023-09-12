@@ -64,4 +64,17 @@ function game() {
     }
 }
 
+const containers = document.querySelectorAll("li");
+
+function getPlayerChoice(){
+    const player = this.dataset.choice;
+    const computer = getComputerChoice();
+
+    playRound(player,computer)
+}
+
+containers.forEach(element => {
+    element.addEventListener('click', getPlayerChoice)
+});
+
 // game();
