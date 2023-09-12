@@ -1,4 +1,7 @@
 const choices = ["rock", "paper", "scissors"];
+let playerScore = 0;
+let computerScore =0;
+let round = 0;
 
 function getComputerChoice() {
     let selection = Math.floor(Math.random() * choices.length);
@@ -22,8 +25,10 @@ function getPlayerSelection() {
 function playRound(playerChoice, computerChoice) {
     let resultString = ""
     let result = 0;
+    let container = document.querySelector(".result");
+
     if (playerChoice === computerChoice) {
-        resultString = `It's a tie, you chose ${playerChoice} and the computer chose ${computerChoice}`;
+        resultString = `It's a tie`;
     } else if ( (playerChoice === "rock" && computerChoice === "paper") || (playerChoice === "paper" && computerChoice === "scissors") || (playerChoice === "scissors" && computerChoice==="rock") ) {
         resultString = `You lose! ${computerChoice} beats ${playerChoice} `;
         result -= 1;
@@ -32,49 +37,43 @@ function playRound(playerChoice, computerChoice) {
         result += 1;
     }
 
-    console.log(resultString);
+    container.textContent = resultString;
 
     return result;
 }
+ 
 
-function game() {
-    let player = "";
-    let computer = "";
+// console.log(`Player score: ${playerScore}, Computer Score: ${computerScore} Round ${i+1}`);
 
-    let result = 0;
-    let playerScore = 0;
-    let computerScore = 0;
 
-    for (let i = 0; i < 5; i++) {
-        player = getPlayerSelection();
-        computer = getComputerChoice();
-        result = playRound(player, computer);
 
-        switch (result) {
-            case 1:
-                playerScore++;
-                break;
-            case -1:
-                computerScore++;
-                break;
-        }
+function playGame(){
+    const player = this.dataset.choice;
+    const computer = getComputerChoice();
+    const scoreContainer = document.querySelector(".score");
 
-        console.log(`Player score: ${playerScore}, Computer Score: ${computerScore} Round ${i+1}`);
+    let result = playRound(player,computer);
 
-    }
+    switch (result) {
+        case 1:
+            playerScore++;
+            break;
+        case -1:
+            computerScore++;
+            break;
+    } 
+
+    round++;
+
+    scoreContainer.textContent = `Player:${playerScore} Computer ${computerScore} round:${round}`
+
+
+
 }
 
 const containers = document.querySelectorAll("li");
 
-function getPlayerChoice(){
-    const player = this.dataset.choice;
-    const computer = getComputerChoice();
-
-    playRound(player,computer)
-}
 
 containers.forEach(element => {
-    element.addEventListener('click', getPlayerChoice)
+    element.addEventListener('click', playGame)
 });
-
-// game();
