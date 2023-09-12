@@ -43,17 +43,27 @@ function playRound(playerChoice, computerChoice) {
 }
 
 
-// console.log(`Player score: ${playerScore}, Computer Score: ${computerScore} Round ${i+1}`);
-
-
 
 function playGame() {
-    const player = this.dataset.choice;
-    const computer = getComputerChoice();
+    const player_choice = this.dataset.choice;
+    const computer_choice = getComputerChoice();
+
+    const gameContainer = document.querySelector(".game");
     const scoreContainer = document.querySelector(".score");
 
+    const playerContainer = document.querySelector(".player");
+    const computerContainer = document.querySelector(".computer");
+
+    let playerImg = document.querySelector(".playerImg");
+    let computerImg = document.querySelector(".computerImg");
+
+
     if (playerScore < 5 && computerScore < 5) {
-        let result = playRound(player, computer);
+
+        gameContainer.style.visibility = "visible"
+
+
+        let result = playRound(player_choice, computer_choice);
 
         switch (result) {
             case 1:
@@ -67,8 +77,16 @@ function playGame() {
         round++;
 
         scoreContainer.textContent = `Player:${playerScore} Computer ${computerScore} round:${round}`
+        playerImg.src = `/images/${player_choice}.png`;
+        computerImg.src = `/images/${computer_choice}.png`;
     }else{
-        
+        if(playerScore === 5){
+            scoreContainer.textContent = `Player wins the game`;
+            playerContainer.classList.add("victory");
+        }else{
+            scoreContainer.textContent = `Computer wins the game`
+            computerContainer.classList.add("victory");
+        }
     }
 
 

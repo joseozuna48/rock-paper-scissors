@@ -76,21 +76,30 @@ header{
 main{
     background-color: var(--light-blue);
     flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 footer{
     background-color: var(--dark-blue);
     min-height: 5vh;
+    
 }
 
 ul{
+    margin-top: 20px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 10vw;
 }
 
 li{
     list-style-type: none;
+    
 }
+
 
 img{
     max-width: 100px;
@@ -100,4 +109,14 @@ img{
     padding: 15px;
 
     cursor: pointer;
+}
+
+.game{
+    visibility: hidden;
+    margin-bottom: 5px;
+}
+
+.victory{
+    border: 10px solid gold;
+    border-radius: 10px;
 }
