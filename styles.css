@@ -97,6 +97,7 @@ ul{
 
 li{
     list-style-type: none;
+    transition: 0.5s;
     
 }
 
@@ -119,4 +120,5 @@ img{
 .victory{
     border: 10px solid gold;
     border-radius: 10px;
+    transform: scale(1.3);
 }

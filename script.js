@@ -79,19 +79,15 @@ function playGame() {
         scoreContainer.textContent = `Player:${playerScore} Computer ${computerScore} round:${round}`
         playerImg.src = `/images/${player_choice}.png`;
         computerImg.src = `/images/${computer_choice}.png`;
-    }else{
-        if(playerScore === 5){
-            scoreContainer.textContent = `Player wins the game`;
-            playerContainer.classList.add("victory");
-        }else{
-            scoreContainer.textContent = `Computer wins the game`
-            computerContainer.classList.add("victory");
-        }
     }
 
-
-
-
+    if(playerScore === 5){
+        scoreContainer.textContent = `Player wins the game`;
+        playerContainer.classList.add("victory");
+    }else if(computerScore ===5) {
+        scoreContainer.textContent = `Computer wins the game`
+        computerContainer.classList.add("victory");
+    }
 }
 
 const containers = document.querySelectorAll("li");
