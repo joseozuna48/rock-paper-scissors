@@ -1,6 +1,6 @@
 const choices = ["rock", "paper", "scissors"];
 let playerScore = 0;
-let computerScore =0;
+let computerScore = 0;
 let round = 0;
 
 function getComputerChoice() {
@@ -29,7 +29,7 @@ function playRound(playerChoice, computerChoice) {
 
     if (playerChoice === computerChoice) {
         resultString = `It's a tie`;
-    } else if ( (playerChoice === "rock" && computerChoice === "paper") || (playerChoice === "paper" && computerChoice === "scissors") || (playerChoice === "scissors" && computerChoice==="rock") ) {
+    } else if ((playerChoice === "rock" && computerChoice === "paper") || (playerChoice === "paper" && computerChoice === "scissors") || (playerChoice === "scissors" && computerChoice === "rock")) {
         resultString = `You lose! ${computerChoice} beats ${playerChoice} `;
         result -= 1;
     } else {
@@ -41,31 +41,36 @@ function playRound(playerChoice, computerChoice) {
 
     return result;
 }
- 
+
 
 // console.log(`Player score: ${playerScore}, Computer Score: ${computerScore} Round ${i+1}`);
 
 
 
-function playGame(){
+function playGame() {
     const player = this.dataset.choice;
     const computer = getComputerChoice();
     const scoreContainer = document.querySelector(".score");
 
-    let result = playRound(player,computer);
+    if (playerScore < 5 && computerScore < 5) {
+        let result = playRound(player, computer);
 
-    switch (result) {
-        case 1:
-            playerScore++;
-            break;
-        case -1:
-            computerScore++;
-            break;
-    } 
+        switch (result) {
+            case 1:
+                playerScore++;
+                break;
+            case -1:
+                computerScore++;
+                break;
+        }
 
-    round++;
+        round++;
 
-    scoreContainer.textContent = `Player:${playerScore} Computer ${computerScore} round:${round}`
+        scoreContainer.textContent = `Player:${playerScore} Computer ${computerScore} round:${round}`
+    }else{
+        
+    }
+
 
 
 
