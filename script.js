@@ -77,8 +77,8 @@ function playGame() {
         round++;
 
         scoreContainer.textContent = `Player:${playerScore} Computer ${computerScore} round:${round}`
-        playerImg.src = `/images/${player_choice}.png`;
-        computerImg.src = `/images/${computer_choice}.png`;
+        playerImg.src = `images/${player_choice}.png`;
+        computerImg.src = `images/${computer_choice}.png`;
     }
 
     if(playerScore === 5){
